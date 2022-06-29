@@ -1,4 +1,4 @@
-# aln2pheno
+# algn2pheno
 
 **A bioinformatics tool for rapid screening of genetic features (nt or aa changes) potentially linked to specific phenotypes**
 
