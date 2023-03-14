@@ -88,7 +88,7 @@ algn2pheno --db database.tsv --algn alignment_aa_Spike.fasta -g S -r reference_h
 algn2pheno --db database.xlsx --algn alignment_aa_Spike.fasta --sheet S --gencol ["Mutation" column number] --phencol ["Phenotype category" column number] -g S -r reference_header --odir output_folder --output output_prefix
 ```
 
-#####
+___________________________
 
 **- Screening of SARS-CoV-2 Spike epitope residues** listed in Carabelli et al, 2023, 21(3), 162–177, Nat Rev Microbiol (https://doi.org/10.1038/s41579-022-00841-7), Figure 1.
 
