@@ -74,17 +74,45 @@ optional arguments:
 How to run (examples)
 ----------------------
 
-1. database (.tsv) + amino acid alignment (SARS-CoV-2 Spike)
+**- Generic examples**
+
+  1. database (.tsv) + amino acid alignment (SARS-CoV-2 Spike)
 
 ```bash
 algn2pheno --db database.tsv --algn alignment_aa_Spike.fasta -g S -r reference_header --odir output_folder --output output_prefix
 ```
 
-2. database (.xlsx) + amino acid alignment (SARS-CoV-2 Spike)
+  2. database (.xlsx) + amino acid alignment (SARS-CoV-2 Spike)
 
 ```bash
 algn2pheno --db database.xlsx --algn alignment_aa_Spike.fasta --sheet S --gencol ["Mutation" column number] --phencol ["Phenotype category" column number] -g S -r reference_header --odir output_folder --output output_prefix
 ```
+
+
+**- Screening of SARS-CoV-2 Spike epitope residues** listed in Carabelli et al, 2023, 21(3), 162–177, Nat Rev Microbiol (https://doi.org/10.1038/s41579-022-00841-7), Figure 1.
+
+```bash
+algn2pheno --db tests/DB_SARS_CoV_2_Spike_EpitopeResidues_Carabelli_2023_NatRevMic_Fig1.tsv -g S --algn alignment_aa_Spike.fasta -r Wuhan/Hu-1/2019 --odir output_folder --output output_prefix
+```
+
+NOTE: 
+
+- The "alignment_aa_Spike.fasta" should contain the SARS-CoV-2 reference sequence (https://www.ncbi.nlm.nih.gov/protein/1796318598) with the following designation: **Wuhan/Hu-1/2019** (available in the "reference_gene_S.translation.fasta" in "tests" folder) 
+
+- If you do not have a Spike amino acid alignment, we recommend running **Nextalign (https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html)**. Example of command:
+
+```bash
+nextalign run -r reference.fasta -m nextalign_annotation.gff -g S -n nextalign -O nextalign_output_folder sequences.fasta
+```
+(the files reference.fasta, nextalign_annotation.gff and reference.txt are available in the "tests" folder)
+
+```bash
+cat reference_gene_S.translation.fasta nextalign_gene_S.translation.fasta > alignment_aa_Spike.fasta 
+```
+
+
+
+
 
 REQUIREMENTS
 -----------------
