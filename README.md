@@ -98,19 +98,19 @@ algn2pheno --db tests/DB_SARS_CoV_2_Spike_EpitopeResidues_Carabelli_2023_NatRevM
 
 NOTE: 
 
-- The "alignment_aa_Spike.fasta" should contain the SARS-CoV-2 reference sequence (https://www.ncbi.nlm.nih.gov/protein/1796318598) with the following designation: **Wuhan/Hu-1/2019** (available in the "reference_gene_S.translation.fasta" in "tests" folder) 
+- The "alignment_aa_Spike.fasta" should contain the SARS-CoV-2 reference sequence (https://www.ncbi.nlm.nih.gov/protein/1796318598), and the fasta header should match the name included in the command line (**Wuhan/Hu-1/2019** in the example above). Find the Wuhan/Hu-1/2019 aa sequence in the "reference_gene_S.translation.fasta" file in "tests" folder. 
 
 - If you do not have a Spike amino acid alignment, we recommend running **Nextalign (https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextalign-cli.html)**. Example of command:
 
 ```bash
 nextalign run -r reference.fasta -m nextalign_annotation.gff -g S -n nextalign -O nextalign_output_folder sequences.fasta
 ```
-(the files reference.fasta, nextalign_annotation.gff and reference.txt are available in the "tests" folder)
+[to run this command you need the following files (available in the "tests" folder"): reference.fasta, nextalign_annotation.gff and reference.txt]
 
 ```bash
 cat reference_gene_S.translation.fasta nextalign_gene_S.translation.fasta > alignment_aa_Spike.fasta 
 ```
-
+[this command will add the Wuhan/Hu-1/2019 protein reference sequence (reference_gene_S.translation.fasta) to the output nextalign alignment (nextalign_gene_S.translation.fasta]
 
 
 
